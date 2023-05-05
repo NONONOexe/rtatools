@@ -1,3 +1,7 @@
 ^rtatools\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^compose.yaml
+^docker
+^README.Rmd
+^rtatools.code-workspace
