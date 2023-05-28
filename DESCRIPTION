@@ -1,10 +1,9 @@
 Package: rtatools
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Functions for road traffic accident data analysis
+Version: 0.0.0.9001
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Keisuke", "ANDO", , "ando@maslab.aitech.ac.jp", role = c("aut", "cre"))
+Description: The `rtatools` is a package for road traffic accident data analysis. This package provides the functions to analyze accident data in Japan, such as downloading the traffic accident data and converting the coordinates of accident points.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -15,5 +14,18 @@ Config/testthat/edition: 3
 Imports: 
     celestial,
     dplyr,
+    fs,
+    lubridate,
+    pdftools,
+    purrr,
+    readr,
+    rlang,
     scales,
-    stringr
+    sf,
+    stringi,
+    stringr,
+    tibble,
+    tidyr,
+    utils
+Depends: 
+    R (>= 2.10)

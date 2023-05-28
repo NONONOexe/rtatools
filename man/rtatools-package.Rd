@@ -4,12 +4,12 @@
 \name{rtatools-package}
 \alias{rtatools}
 \alias{rtatools-package}
-\title{rtatools: What the Package Does (One Line, Title Case)}
+\title{rtatools: Functions for road traffic accident data analysis}
 \description{
-What the package does (one paragraph).
+The `rtatools` is a package for road traffic accident data analysis. This package provides the functions to analyze accident data in Japan, such as downloading the traffic accident data and converting the coordinates of accident points.
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Keisuke ANDO \email{ando@maslab.aitech.ac.jp}
 
 }
 \keyword{internal}

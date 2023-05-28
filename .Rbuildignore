@@ -5,3 +5,7 @@
 ^docker
 ^README.Rmd
 ^rtatools.code-workspace
+^data-raw$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
