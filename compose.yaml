@@ -9,6 +9,6 @@ services:
       TZ: Asia/Tokyo
       DISABLE_AUTH: true
     ports:
-      - "8787:8787"
+      - "18787:8787"
     volumes:
       - .:/home/rstudio/rtatools
