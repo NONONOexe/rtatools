@@ -1,2 +1,8 @@
+# internal data for R
 .Rproj.user
+
+# local files
+local
+
+# internal test data
 tests/testthat/data

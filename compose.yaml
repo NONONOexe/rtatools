@@ -12,3 +12,13 @@ services:
       - "18787:8787"
     volumes:
       - .:/home/rstudio/rtatools
+  database:
+    image: postgis/postgis
+    container_name: rtatools-database
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: p@ssw0rd
+      POSTGRES_DB: traffic_accident_database
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+    ports:
+      - "5432:5432"

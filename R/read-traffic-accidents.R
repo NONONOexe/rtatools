@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' # Read traffic accident main data(honhyo)
+#' # Read traffic accident main data (honhyo)
 #' file <- download_traffic_accidents_main("data")
 #' data <- read_traffic_accidents_main(file)
 #' }
@@ -18,7 +18,7 @@ read_traffic_accidents_main <- function(file) {
     read_csv(
       col_types      = cols(.default = "c"),
       locale         = locale(encoding = "Shift_JIS"),
-      name_repair    = translate_item_name,
+      name_repair    = \(names) translate(names, "main", "item_name"),
       progress       = FALSE,
       show_col_types = FALSE,
       lazy           = FALSE
@@ -45,7 +45,7 @@ read_traffic_accidents_sub <- function(file) {
     read_csv(
       col_types      = cols(.default = "c"),
       locale         = locale(encoding = "Shift_JIS"),
-      name_repair    = translate_item_name,
+      name_repair    = \(names) translate(names, "sub", "item_name"),
       progress       = FALSE,
       show_col_types = FALSE,
       lazy           = FALSE
@@ -74,7 +74,7 @@ read_traffic_accidents_highway <- function(file) {
     read_csv(
       col_types      = cols(.default = "c"),
       locale         = locale(encoding = "Shift_JIS"),
-      name_repair    = translate_item_name,
+      name_repair    = \(names) translate(names, "highway", "item_name"),
       progress       = FALSE,
       show_col_types = FALSE,
       lazy           = FALSE
@@ -187,8 +187,7 @@ extract_parties <- function(main_raw) {
       -c("recording_year", "prefecture", "police_office", "accident_id")
     ) |>
     filter(str_detect(.data$name, "[_]{2}")) |>
-    separate_wider_delim(
-      .data$name,
+    separate_wider_delim("name",
       delim = "__", names = c("name", "party_id")
     ) |>
     filter(.data$name %in% .parties_cols) |>
@@ -231,7 +230,7 @@ find_item_name <- function(page) {
     arrange(.data$x) |>
     pull(.data$text) |>
     paste(collapse = " ") |>
-    translate_item_name()
+    translate("code", "item_name")
 
   return(item_name)
 }
@@ -267,7 +266,7 @@ extract_header <- function(page, text_left, item_name) {
     arrange(.data$center) |>
     transmute(
       name = .data$text |>
-        translate_code_column_name() |>
+        translate("code", "column_name") |>
         str_replace_all(str_c("^", item_name, "$"), "code") |>
         str_replace_all(str_c("^", item_name, "_name$"), "name"),
       left = accumulate(.data$center,
